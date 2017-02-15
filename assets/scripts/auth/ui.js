@@ -36,10 +36,6 @@ const signInSuccess = (resp) => {
 	window.localStorage.setItem('user', JSON.stringify(resp.user));
   $("#sign-in")[0].reset();
   $('#signIn').modal('hide');
-	$('.btn-create').show();
-	$('.btn-index').show();
-	$('.banner').show();
-	$('.showgames').show();
   $('.alert span').text('You have signed is as ' + resp.user.email);
 	$('.alert').slideDown();
 
