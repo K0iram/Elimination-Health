@@ -2,7 +2,7 @@
 
 const config = {
   apiOrigins: {
-    production: 'https://git.heroku.com/elimination-health-api.git',
+    production: 'https://git.heroku.com/hidden-spire-77972.git',
     development: 'http://localhost:4741',
   },
 };
