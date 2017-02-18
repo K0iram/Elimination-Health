@@ -32,7 +32,7 @@ const signUpFailure = (err) => {
 
 const signUpSuccess = (resp) => {
   $("#sign-up")[0].reset();
-  $('#sign-up').hide();
+  $('#logbox').hide();
   $('.alert span').text("Thanks for signing up! Please sign in!");
   $('.alert').slideDown();
 
