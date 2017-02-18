@@ -4,30 +4,39 @@ const store = require('../store');
 const checkForUser = function() {
   //if user is already signed in
   if(!!store.user.id){
-    $('.btn-sign-in').hide();
-    $('.btn-create').show();
+    $('#sign-in').hide();
     $('#sign-out').show();
-    $('.btn-change-pass').show();
+    $('#change-password').show();
   } else {
     $('#sign-out').hide();
-    $('.btn-change-pass').hide();
-    $('.btn-sign-in').show();
+    $('#change-password').hide();
+    $('#sign-in').show();
   }
 };
 
 const signUpFailure = (err) => {
 	if (err.status === 400) {
 		//unauthorized
-		$('.signUpMessage').text("Something went wrong. Check your email/password.");
+		$('.alert span').text("Something went wrong. Check your email/password.");
+    $('.alert').slideDown();
+
+    $('.alert').delay(2000).slideUp();
 	} else {
-		$('.signUpMessage').text("An unknown error occured.");
+		$('.alert span').text("An unknown error occured.");
+    $('.alert').slideDown();
+
+    $('.alert').delay(2000).slideUp();
+
 	}
 };
 
 const signUpSuccess = (resp) => {
   $("#sign-up")[0].reset();
-  $('#signUp').modal('hide');
-  $('.wrongCred').text("Thanks for signing up! Please sign in to play!");
+  $('#sign-up').hide();
+  $('.alert span').text("Thanks for signing up! Please sign in!");
+  $('.alert').slideDown();
+
+  $('.alert').delay(2000).slideUp();
 };
 
 const signInSuccess = (resp) => {
@@ -35,7 +44,9 @@ const signInSuccess = (resp) => {
 	//keeps a copy of the user in local storage to keep  session open
 	window.localStorage.setItem('user', JSON.stringify(resp.user));
   $("#sign-in")[0].reset();
-  $('#signIn').modal('hide');
+  $('#signIn').hide();
+  $('#logbox').hide();
+  $('#logbox2').show();
   $('.alert span').text('You have signed is as ' + resp.user.email);
 	$('.alert').slideDown();
 
@@ -47,13 +58,8 @@ const signInSuccess = (resp) => {
 };
 
 const signOutSuccess = () => {
-	$('.board').hide();
-	$('.btn-create').hide();
-	$('.btn-index').hide();
-  $('.banner').text('');
-	$('.banner').hide();
-  $('.showgames').text('');
-	$('.showgames').hide();
+  $('#logbox').show();
+  $('#lobbox2').hide();
 
 	store.user = {};
 	// remove local storage user copy.
@@ -65,25 +71,35 @@ const signOutSuccess = () => {
 const signInFailure = (err) => {
 	if (err.status === 401) {
 		//unauthorized
-		$('.wrongCred').text("Wrong username or password! Try again");
+		$('.alert span').text("Wrong username or password! Try again");
+    $('.alert').slideDown();
+
+  	$('.alert').delay(2000).slideUp();
 	} else {
-		$('.wrongCred').text("An unknown error occured.");
+		$('.alert span').text("An unknown error occured.");
+    $('.alert').slideDown();
+
+  	$('.alert').delay(2000).slideUp();
 	}
 };
 
 const passwordChangeFailure = (err) => {
 	if (err.status === 400) {
 		//unauthorized
-		$('.password-message').text("Your existing password is incorect");
+		$('.alert span').text("Your existing password is incorect");
+    $('.alert').slideDown();
+
+    $('.alert').delay(2000).slideUp();
 	} else {
-		$('.password-message').text("An unknown error occured.");
+		$('.alert span').text("An unknown error occured.");
+    $('.alert').slideDown();
+
+    $('.alert').delay(2000).slideUp();
 	}
 };
 
 const passwordChangeSuccess = () => {
   $("#change-password")[0].reset();
-  $('.password-message').text('');
-  $('#changePassword').modal('hide');
 	$('.alert span').text('You have sucessfully changed your password!');
 	$('.alert').slideDown();
 

@@ -18,12 +18,11 @@
 
       <!-- <h1>Elimination Health</h1> -->
 
-    <div class="alert alert-success alert-dismissible"><a class="close" data-dismiss="alert">×</a><span class="alert-message"></span></div>
     <!-- <nav class="navbar navbar-default navbar-static-top">
       <div class="nav-container">
         <div class="sign-in">
-          <!-- Modal -->
-          <div class="modal fade" id="signIn" tabindex="-1" role="dialog" aria-labelledby="Sign In">
+          <!- Modal -->
+          <!-- <div class="modal fade" id="signIn" tabindex="-1" role="dialog" aria-labelledby="Sign In">
             <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -62,7 +61,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
           <!-- Button trigger modal -->
           <!-- <button type="button" class="btn btn-primary btn-lg btn-sign-in" data-toggle="modal" data-target="#signIn">
             Sign In
@@ -162,26 +161,43 @@
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
-      <form id="signin" class="navbar-form navbar-right" role="form">
+          <form id="sign-in" class="navbar-form navbar-right" role="form">
 
-                        <div class="input-group">
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                            <input id="email" type="email" class="form-control" name="email" value="" placeholder="Email Address">
-                        </div>
+              <div class="input-group">
+                  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                  <input id="email" type="email" class="form-control" name="credentials[email]" value="" placeholder="Email Address">
+              </div>
 
-                        <div class="input-group">
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                            <input id="password" type="password" class="form-control" name="password" value="" placeholder="Password">
-                  </div>
+              <div class="input-group">
+                  <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                  <input id="password" type="password" class="form-control" name="credentials[password]" value="" placeholder="Password">
+              </div>
+                  <button type="submit" class="btn btn-primary">Login</button>
+          </form>
 
-                        <button type="submit" class="btn btn-primary">Login</button>
-                   </form>
+          <form id="change-password" class="navbar-form navbar-right" role="form">
+
+              <div class="input-group">
+                  <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                  <input id="" type="password" class="form-control" name="passwords[old]" value="" placeholder="Old Password">
+                </div>
+
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                  <input id="password" type="password" class="form-control" name="passwords[new]" value="" placeholder="New Password">
+                </div>
+
+                <button type="submit" class="btn btn-primary">Change Password</button>
+          </form>
+            <button id="sign-out" class="btn btn-primary">Sign Out</button>
 
     </div>
       </ul>
     </div>
   </div>
 </nav>
+<div class="alert alert-success alert-dismissible"><a class="close" data-dismiss="alert">×</a><span class="alert-message"></span></div>
+
 
 
 
@@ -189,11 +205,11 @@
 <div class="container" >
     <div class="col-md-6" >
         <div id="logbox"  >
-            <form id="signup" method="post" action="/signup" >
+            <form id="sign-up" method="post" action="/signup" >
                 <h1>Create an Account</h1>
-				 <input name="user[email]" type="email" placeholder="Email address" class="input pass"/>
-                <input name="user[password]" type="password" placeholder="Choose a password" required="required" class="input pass"/>
-                <input name="user[password2]" type="password" placeholder="Confirm password" required="required" class="input pass"/>
+				 <input name="credentials[email]" type="email" placeholder="Email address" class="input pass"/>
+                <input name="credentials[password]" type="password" placeholder="Choose a password" required="required" class="input pass"/>
+                <input name="credentials[password_confirmation]" type="password" placeholder="Confirm password" required="required" class="input pass"/>
                 <input type="submit" value="Sign me up!" class="inputButton"/>
 
             </form>
@@ -208,13 +224,13 @@
 <div>
 <div class="container" >
     <div class="col-md-6" >
-        <div id="logbox"  >
-            <form id="creatMeal" method="post" action="/signup" >
+        <div id="logbox2"  >
+            <form id="create-meal" method="post" action="/create" >
                 <h1>Create a Meal</h1>
 				        <input name="user[title]" type="text" placeholder="Meal Title" class="input title" required="required">
                 <textarea class="form-control" id="exampleTextarea" rows="3" placeholder="Describe your meal" required="required"></textarea>
                 <h5>How did you feel? (On a scale from 1-10)</h5>
-                <select class="form-control" id="exampleSelect1" placeholder="How did you feel?" required="required">
+                <select class="form-control" id="exampleSelect1" required="required">
                   <option>1</option>
                   <option>2</option>
                   <option>3</option>
@@ -236,34 +252,3 @@
 
 </div>
 </div>
-
-
-
-      <div class="container">
-        <form class="makeMeal">
-          <fieldset>
-            <legend>Create a new meal</legend>
-              <label class='mealTitle'>
-              Title
-              <input type="text" name="title">
-              </label>
-              <label for="exampleTextarea">Description</label>
-                <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
-              <label for="exampleSelect1">How did you feel? (On a scale from 1-10)</label>
-                <select class="form-control" id="exampleSelect1">
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
-                  <option>6</option>
-                  <option>7</option>
-                  <option>8</option>
-                  <option>9</option>
-                  <option>10</option>
-                </select>
-            <input type="submit" name="submit" value="Submit!">
-          </fieldset>
-        </form>
-
-      </div>

@@ -1,20 +1,22 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 
+#sign-out {
+  display: none;
+  margin-top: 8px;
+}
+
+#change-password {
+  display: none;
+}
+
+#logbox2 {
+  display: none;
+}
 
 .alert {
   display: none;
 };
-
-.mealDescription {
-  display: block;
-  height: 300px;
-  width: 150px;
-};
-
-.mealTitle {
-  display: table-caption;
-}
 
 ::selection {
   background-color: #b5e2e7;
@@ -35,6 +37,16 @@ body {
 }
 
 #logbox {
+  padding: 10px;
+  margin: 50px auto;
+  width: 340px;
+  background-color: #fff;
+  -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
+}
+
+#logbox2 {
   padding: 10px;
   margin: 50px auto;
   width: 340px;
