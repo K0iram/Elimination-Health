@@ -34,14 +34,30 @@ const getMealSuccess = () => {
   const $meals = mealTemplate({meals: sortedMeals});
 
   $('.meal-show').html( $meals );
-
-
 };
+
+const editMealSuccess = () => {
+  $('.alert span').text("Meal Edited! Click show to view your changes!");
+  $('.alert').slideDown();
+
+  $('.alert').delay(2000).slideUp();
+};
+
+const removeMealSuccess = () => {
+  $('#removeMealMoal').modal('hide');
+  $('.alert span').text("Meal Removed! Click show to view your changes!");
+  $('.alert').slideDown();
+
+  $('.alert').delay(2000).slideUp();
+};
+
 
 
 
 module.exports = {
   createMealSuccess,
   createMealFailure,
-  getMealSuccess
+  getMealSuccess,
+  editMealSuccess,
+  removeMealSuccess
 };

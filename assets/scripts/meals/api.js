@@ -24,7 +24,38 @@ const getMeals = function () {
   });
 };
 
+const updateMeal = function (date, title, description, feeling) {
+  return $.ajax({
+    url: config.apiOrigin + '/meals/' + store.meal.id,
+    method: 'PATCH',
+    data: JSON.stringify({
+      meals: {
+          eaten_on: date,
+          title: title,
+          description: description,
+          feeling: feeling
+      }
+    }),
+    contentType: 'application/json',
+    headers: {
+       Authorization: `Token token=${store.user.token}`,
+     }
+  });
+};
+
+const removeMeal = function (id) {
+  return $.ajax({
+    url: config.apiOrigin + '/meals/' + id,
+    method: 'DELETE',
+    headers: {
+      Authorization: `Token token=${store.user.token}`,
+    },
+  });
+};
+
 module.exports = {
   createMeal,
-  getMeals
+  getMeals,
+  updateMeal,
+  removeMeal
 };

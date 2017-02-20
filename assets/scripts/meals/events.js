@@ -26,10 +26,27 @@ const onGetMeals = function (event) {
     });
 };
 
+const onEditMeal = function (event) {
+  let data = getFormFields(event.target);
+  event.preventDefault();
+  api.editMeal(data)
+    .then(ui.editMealSuccess)
+    .catch(ui.editMealFailure);
+};
+
+
+const onRemoveMeal = function (event) {
+  let data = getFormFields(event.target);
+  event.preventDefault();
+  api.removeMeal(data.meal.id)
+    .then(ui.removeMealSuccess);
+};
 
 const addHandlers = () => {
   $('#create-meal').on('submit', onCreateMeal);
   $('#show-meals').on('click', onGetMeals);
+  $('#edit-meal').on('click', onEditMeal);
+  $('#delete-meal').on('submit', onRemoveMeal);
 };
 
 module.exports = {

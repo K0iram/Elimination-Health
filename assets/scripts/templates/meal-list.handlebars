@@ -1,6 +1,7 @@
 {{#each meals as |meal|}}
 
   <ul data-id="{{meal.id}}">
+    <li>ID - {{meal.id}}</li>
     <li>Title - {{meal.title}}</li>
     <li>Date - {{ dateFormat meal.eaten_on }}</li>
     {{#if meal.description}}
@@ -10,8 +11,12 @@
     {{/if}}
     <li>Feeling - {{ meal.feeling }}</li>
 
-      <li><button>REMOVE</button></li>
-      <li><button>EDIT</button></li>
   </ul>
 
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#removeMealModal">
+    Remove Meal
+  </button>
+
+  <button id='edit-meal' class="btn btn-primary">EDIT</button></li>
 {{/each}}
