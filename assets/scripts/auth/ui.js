@@ -4,6 +4,8 @@ const store = require('../store');
 const checkForUser = function() {
   //if user is already signed in
   if(!!store.user.id){
+    loggedInSuccess();
+
     $('#sign-in').hide();
     $('#sign-out').show();
     $('#change-password').show();
@@ -43,10 +45,7 @@ const signInSuccess = (resp) => {
 	store.user = resp.user;
 	//keeps a copy of the user in local storage to keep  session open
 	window.localStorage.setItem('user', JSON.stringify(resp.user));
-  $("#sign-in")[0].reset();
-  $('#signIn').hide();
-  $('#logbox').hide();
-  $('#logbox2').show();
+  loggedInSuccess();
   $('.alert span').text('You have signed is as ' + resp.user.email);
 	$('.alert').slideDown();
 
@@ -55,6 +54,14 @@ const signInSuccess = (resp) => {
 
 	checkForUser();
 	return store.user;
+};
+
+
+const loggedInSuccess = () => {
+  $("#sign-in")[0].reset();
+  $('#signIn').hide();
+  $('#logbox').hide();
+  $('#logbox2').show();
 };
 
 const signOutSuccess = () => {
@@ -114,5 +121,7 @@ module.exports = {
   signInFailure,
   passwordChangeFailure,
   passwordChangeSuccess,
-  signOutSuccess
+  signOutSuccess,
+  loggedInSuccess,
+  checkForUser
 };

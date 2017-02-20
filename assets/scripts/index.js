@@ -9,4 +9,5 @@ $(() => {
   setAPIOrigin(location, config);
   authEvents.addHandlers();
   mealEvents.addHandlers();
+
 });

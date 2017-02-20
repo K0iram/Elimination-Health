@@ -38,6 +38,8 @@ const onSignOut = function (event) {
 
 
 const addHandlers = () => {
+  ui.checkForUser();
+
   $('#sign-up').on('submit', onSignUp);
   $('#sign-in').on('submit', onSignIn);
   $('#change-password').on('submit', onChangePassword);

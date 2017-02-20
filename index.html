@@ -92,13 +92,13 @@
         <div class="container" >
           <div class="col-md-6" >
             <div id="logbox2"  >
-              <div>
+              <form id="create-meal">
                 <h1>Create a Meal</h1>
-                  <input name="user[eatenOn]" type="date" placeholder="Date" class="input title" required="required">
-				          <input name="user[title]" type="text" placeholder="Meal Title" class="input title" required="required">
-                  <textarea class="form-control" name="user[description]" rows="3" placeholder="Describe your meal" required="required"></textarea>
+                  <input name="meal[eaten_on]" type="date" placeholder="Date" class="input title" required="required">
+				          <input name="meal[title]" type="text" placeholder="Meal Title" class="input title" required="required">
+                  <textarea class="form-control" name="meal[description]" rows="3" placeholder="Describe your meal" required="required"></textarea>
                   <h5>How did you feel? (On a scale from 1-10)</h5>
-                  <select class="form-control" name="user[feeling]" required="required">
+                  <select class="form-control" name="meal[feeling]" required="required">
                     <option>1</option>
                     <option>2</option>
                     <option>3</option>
@@ -110,8 +110,8 @@
                     <option>9</option>
                     <option>10</option>
                   </select>
-                <button id="create-meal" value="Submit Your Meal!" class="inputButton"/>
-              </div>
+                <input type="submit" value="Submit Your Meal!" class="inputButton"/>
+              </form>
             </div>
           </div>
         </div>

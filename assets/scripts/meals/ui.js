@@ -1,13 +1,13 @@
 'use strict';
 
 
-const creatMealSuccess = () => {
+const createMealSuccess = () => {
   $('.alert span').text("New meal created! Click show to view");
   $('.alert').slideDown();
 
   $('.alert').delay(2000).slideUp();
 };
-const creatMealFailure = (err) => {
+const createMealFailure = (err) => {
 	if (err.status === 400) {
 		//unauthorized
 		$('.alert span').text("Something went wrong, please make sure all feilds are correct.");
@@ -24,6 +24,6 @@ const creatMealFailure = (err) => {
 };
 
 module.exports = {
-  creatMealSuccess,
-  creatMealFailure
+  createMealSuccess,
+  createMealFailure
 };
