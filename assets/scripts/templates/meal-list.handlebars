@@ -1,14 +1,14 @@
 {{#each meals as |meal|}}
 
   <ul data-id="{{meal.id}}">
-    <li>Title: {{meal.title}}</li>
-    <li>Date: {{ dateFormat meal.eaten_on }}</li>
-    <li>Feeling {{ meal.feeling }}</li>
+    <li>Title - {{meal.title}}</li>
+    <li>Date - {{ dateFormat meal.eaten_on }}</li>
     {{#if meal.description}}
-      <li>{{meal.description}}</li>
+      <li>Description - {{meal.description}}</li>
     {{else}}
       No description.
     {{/if}}
+    <li>Feeling - {{ meal.feeling }}</li>
 
       <li><button>REMOVE</button></li>
       <li><button>EDIT</button></li>
