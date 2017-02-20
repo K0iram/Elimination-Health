@@ -18,19 +18,18 @@ const onCreateMeal = function (event) {
 };
 
 const onGetMeals = function (event) {
-  let data = getFormFields(event.target);
   event.preventDefault();
-  api.createMeal(data)
+  api.getMeals()
     .then((response) => {
-      store.meal = response.meal;
-    })
-    .then(ui.createMealSuccess)
-    .catch(ui.createMealFailure);
+      store.meals = response.meals;
+      ui.getMealSuccess();
+    });
 };
 
 
 const addHandlers = () => {
   $('#create-meal').on('submit', onCreateMeal);
+  $('#show-meals').on('click', onGetMeals);
 };
 
 module.exports = {

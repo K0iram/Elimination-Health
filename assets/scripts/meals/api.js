@@ -14,6 +14,17 @@ const createMeal = function (data) {
   });
 };
 
+const getMeals = function () {
+  return $.ajax({
+    url: config.apiOrigin + '/meals',
+    method: 'GET',
+    headers: {
+      "Authorization": `Token token=${store.user.token}`
+    }
+  });
+};
+
 module.exports = {
-  createMeal
+  createMeal,
+  getMeals
 };

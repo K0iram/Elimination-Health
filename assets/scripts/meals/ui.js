@@ -1,5 +1,7 @@
 'use strict';
 
+const store = require('../store');
+const mealTemplate = require('../templates/meal-list.handlebars');
 
 const createMealSuccess = () => {
   $('.alert span').text("New meal created! Click show to view");
@@ -23,7 +25,23 @@ const createMealFailure = (err) => {
 	}
 };
 
+const getMealSuccess = () => {
+
+  const sortedMeals = store.meals.sort(function(a,b){
+  return new Date(b.eaten_on) - new Date(a.eaten_on);
+});
+
+  const $meals = mealTemplate({meals: sortedMeals});
+
+  $('.meal-show').html( $meals );
+
+
+};
+
+
+
 module.exports = {
   createMealSuccess,
-  createMealFailure
+  createMealFailure,
+  getMealSuccess
 };
