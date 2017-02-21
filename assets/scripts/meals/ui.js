@@ -36,7 +36,7 @@ const getMealSuccess = () => {
   $('.meal-show').html( $meals );
 };
 
-const editMealSuccess = () => {
+const updateMealSuccess = () => {
   $('.alert span').text("Meal Edited! Click show to view your changes!");
   $('.alert').slideDown();
 
@@ -44,8 +44,15 @@ const editMealSuccess = () => {
 };
 
 const removeMealSuccess = () => {
-  $('#removeMealMoal').modal('hide');
+  $('#removeMealModal').modal('hide');
+  $('#delete-meal').val('');
   $('.alert span').text("Meal Removed! Click show to view your changes!");
+  $('.alert').slideDown();
+
+  $('.alert').delay(2000).slideUp();
+};
+const removeMealFailure = () => {
+  $('.alert span').text("Somthing went wrong! Check ID number and try again!");
   $('.alert').slideDown();
 
   $('.alert').delay(2000).slideUp();
@@ -58,6 +65,7 @@ module.exports = {
   createMealSuccess,
   createMealFailure,
   getMealSuccess,
-  editMealSuccess,
-  removeMealSuccess
+  updateMealSuccess,
+  removeMealSuccess,
+  removeMealFailure
 };

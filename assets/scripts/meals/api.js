@@ -24,22 +24,14 @@ const getMeals = function () {
   });
 };
 
-const updateMeal = function (date, title, description, feeling) {
+const updateMeal = function (data) {
   return $.ajax({
-    url: config.apiOrigin + '/meals/' + store.meal.id,
+    url: config.apiOrigin + '/meals/' + data.meal.id,
     method: 'PATCH',
-    data: JSON.stringify({
-      meals: {
-          eaten_on: date,
-          title: title,
-          description: description,
-          feeling: feeling
-      }
-    }),
-    contentType: 'application/json',
     headers: {
-       Authorization: `Token token=${store.user.token}`,
-     }
+      "Authorization": `Token token=${store.user.token}`
+    },
+    data,
   });
 };
 
