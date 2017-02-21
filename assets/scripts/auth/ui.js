@@ -9,10 +9,13 @@ const checkForUser = function() {
     $('#sign-in').hide();
     $('#sign-out').show();
     $('#change-password').show();
+    $('#logbox2').show();
+    $('#show-meals').show();
   } else {
     $('#sign-out').hide();
     $('#change-password').hide();
     $('#sign-in').show();
+    $('#logbox2').hide();
   }
 };
 
@@ -61,12 +64,12 @@ const loggedInSuccess = () => {
   $("#sign-in")[0].reset();
   $('#signIn').hide();
   $('#logbox').hide();
-  $('#logbox2').show();
 };
 
 const signOutSuccess = () => {
   $('#logbox').show();
   $('#lobbox2').hide();
+
 
 	store.user = {};
 	// remove local storage user copy.

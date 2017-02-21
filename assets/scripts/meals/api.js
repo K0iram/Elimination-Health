@@ -2,6 +2,7 @@
 
 const config = require('../config');
 const store = require('../store');
+const mealTemplate = require('../templates/meal-list.handlebars');
 
 const createMeal = function (data) {
   return $.ajax({
@@ -24,9 +25,9 @@ const getMeals = function () {
   });
 };
 
-const updateMeal = function (data) {
+const updateMeal = function (data, id) {
   return $.ajax({
-    url: config.apiOrigin + '/meals/' + data.meal.id,
+    url: config.apiOrigin + '/meals/' + id,
     method: 'PATCH',
     headers: {
       "Authorization": `Token token=${store.user.token}`

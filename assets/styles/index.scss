@@ -14,6 +14,10 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
   display: none;
 }
 
+#show-meals {
+  display: none;
+}
+
 .alert {
   display: none;
 };
@@ -140,4 +144,21 @@ h5, input {
   font-size: xx-large;
   font-weight: bold;
   font-family: "Open Sans", Helvetica, sans-serif;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  background-color: white;
+}
+
+table,
+td,
+th {
+  border: 1px solid black;
+  padding: 5px;
+}
+
+td {
+  font-style: italic;
 }

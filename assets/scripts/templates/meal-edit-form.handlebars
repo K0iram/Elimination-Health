@@ -1,6 +1,5 @@
-
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editMealModal-{{meal.id}}">
-  Update this book.
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editMealModal">
+  Edit Meal
 </button>
 
 <!-- Modal -->
@@ -19,11 +18,11 @@
                 <div id="logbox3"  >
                   <form id="edit-meal" data-meal="{{meal.id}}">
                     <!-- <input name="meal[id]" type="text" placeholder="Meal ID" class="input title" required="required"> -->
-                    <input name="meal[eaten_on]" type="date" placeholder="Date" class="input title" value="{{meal.date}}" required="required">
-                    <input name="meal[title]" type="text" placeholder="Meal Title" class="input title" value="{{meal.title}}" required="required">
-                    <textarea class="form-control" name="meal[description]" rows="3" placeholder="Describe your meal"  value="{{meal.description}}" required="required"></textarea>
+                    <input name="meal[eaten_on]" type="date" placeholder="Date" class="input title" value="{{meal.date}}">
+                    <input name="meal[title]" type="text" placeholder="Meal Title" class="input title" value="{{meal.title}}">
+                    <textarea class="form-control" name="meal[description]" rows="3" placeholder="Describe your meal"  value="{{meal.description}}"></textarea>
                     <h5>How did you feel? (On a scale from 1-10)</h5>
-                    <select class="form-control" name="meal[feeling]"  value="{{meal.feeling}}" required="required">
+                    <select class="form-control" name="meal[feeling]"  value="{{meal.feeling}}">
                       <option>1</option>
                       <option>2</option>
                       <option>3</option>
@@ -47,3 +46,4 @@
     </div>
   </div>
 </div>
+{{/each}}

@@ -28,17 +28,18 @@ const onGetMeals = function (event) {
 
 const onUpdateMeal = function (event) {
   let data = getFormFields(event.target);
+  let id = event.target.getAttribute('data-id');
   event.preventDefault();
-  api.updateMeal(data.meal.id)
+  api.updateMeal(data, id)
     .then(ui.UpdateMealSuccess)
     .catch(ui.UpdateMealFailure);
 };
 
 
 const onRemoveMeal = function (event) {
-  let data = getFormFields(event.target);
+  let id = event.target.getAttribute('data-id');
   event.preventDefault();
-  api.removeMeal(data.meal.id)
+  api.removeMeal(id)
     .then(ui.removeMealSuccess)
     .catch(ui.removeMealFailure);
 };
@@ -46,8 +47,8 @@ const onRemoveMeal = function (event) {
 const addHandlers = () => {
   $('#create-meal').on('submit', onCreateMeal);
   $('#show-meals').on('click', onGetMeals);
-  $('#edit-meal').on('submit', onUpdateMeal);
-  $('#delete-meal').on('submit', onRemoveMeal);
+  $('.meal-show').on('sumbit', "#edit-meal-button", onUpdateMeal);
+  $('.meal-show').on('click', "#delete-meal-button", onRemoveMeal);
 };
 
 module.exports = {

@@ -1,25 +1,70 @@
 {{#each meals as |meal|}}
 
-  <ul data-id="{{meal.id}}">
-    <li>ID - {{meal.id}}</li>
-    <li>Title - {{meal.title}}</li>
-    <li>Date - {{ dateFormat meal.eaten_on }}</li>
-    {{#if meal.description}}
-      <li>Description - {{meal.description}}</li>
-    {{else}}
-      No description.
-    {{/if}}
-    <li>Feeling - {{ meal.feeling }}</li>
-
-  </ul>
+  <table data-id="{{meal.id}}">
+    <colgroup span="4"></colgroup>
+    <!-- <li>ID - {{meal.id}}</li> -->
+    <tr><th>Title</th></tr>
+      <td>{{meal.title}}</td>
+    <tr><th>Date</th></tr>
+      <td>{{ dateFormat meal.eaten_on }}</td>
+    <tr><th>Description</th></tr>
+      <td>{{meal.description}}</td>
+    <tr><th>Feeling</th></tr>
+      <td>{{ meal.feeling }}</td>
+  </table>
 
   <!-- Button trigger modal -->
-  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#removeMealModal">
+  <button data-id="{{meal.id}}" id="delete-meal-button" class="btn btn-primary">
     Remove Meal
   </button>
 
-  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editMealModal">
+  <button data-id="{{meal.id}}" class="btn btn-primary" data-toggle="modal" data-target="#editMealModal">
     Edit Meal
   </button>
+
+  <!-- Modal -->
+    <div class="modal fade" id="editMealModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Edit A Meal</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              </div>
+            <div>
+              <div class="container" >
+                <div class="col-md-6" >
+                  <div id="logbox3">
+                    <form id="edit-meal" data-id="{{meal.id}}">
+                      <input name="meal[eaten_on]" type="date" class="input title" value="{{meal.eaten_on}}">
+                      <input name="meal[title]" type="text" placeholder="Meal Title" class="input title" value="{{meal.title}}">
+                      <textarea class="form-control" name="meal[description]" rows="3" placeholder="Describe your meal"  value="{{meal.description}}"></textarea>
+                      <h5>How did you feel? (On a scale from 1-10)</h5>
+                      <select class="form-control" name="meal[feeling]"  value="{{meal.feeling}}">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                        <option>7</option>
+                        <option>8</option>
+                        <option>9</option>
+                        <option>10</option>
+                      </select>
+                      <button type="submit" id="edit-meal-button" class="inputButton">Submit</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+          </div>
+      </div>
+    </div>
+  </div>
+
 
 {{/each}}
