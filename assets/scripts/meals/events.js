@@ -27,9 +27,10 @@ const onGetMeals = function (event) {
 };
 
 const onUpdateMeal = function (event) {
+  event.preventDefault();
+  console.log(event.target);
   let data = getFormFields(event.target);
   let id = event.target.getAttribute('data-id');
-  event.preventDefault();
   api.updateMeal(data, id)
     .then(ui.UpdateMealSuccess)
     .catch(ui.UpdateMealFailure);
@@ -47,7 +48,7 @@ const onRemoveMeal = function (event) {
 const addHandlers = () => {
   $('#create-meal').on('submit', onCreateMeal);
   $('#show-meals').on('click', onGetMeals);
-  $('.meal-show').on('sumbit', "#edit-meal-button", onUpdateMeal);
+  $('.meal-show').on('submit', '.edit-button', onUpdateMeal);
   $('.meal-show').on('click', "#delete-meal-button", onRemoveMeal);
 };
 

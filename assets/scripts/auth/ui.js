@@ -16,6 +16,7 @@ const checkForUser = function() {
     $('#change-password').hide();
     $('#sign-in').show();
     $('#logbox2').hide();
+    $('#show-meals').hide();
   }
 };
 

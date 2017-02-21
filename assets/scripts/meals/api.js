@@ -2,7 +2,6 @@
 
 const config = require('../config');
 const store = require('../store');
-const mealTemplate = require('../templates/meal-list.handlebars');
 
 const createMeal = function (data) {
   return $.ajax({

@@ -44,7 +44,6 @@ const updateMealSuccess = () => {
 };
 
 const removeMealSuccess = () => {
-  $('#removeMealModal').modal('hide');
   $('#delete-meal').val('');
   $('.alert span').text("Meal Removed! Click show to view your changes!");
   $('.alert').slideDown();
@@ -52,7 +51,7 @@ const removeMealSuccess = () => {
   $('.alert').delay(2000).slideUp();
 };
 const removeMealFailure = () => {
-  $('.alert span').text("Somthing went wrong! Check ID number and try again!");
+  $('.alert span').text("Somthing went wrong! Pleas try again!");
   $('.alert').slideDown();
 
   $('.alert').delay(2000).slideUp();
