@@ -35,7 +35,7 @@ const onUpdateMeal = function (event) {
     .then(ui.UpdateMealSuccess)
     .then(() => {
       onGetMeals();
-      // $('#editModal').modal('hide');
+      $('#editModal').modal('hide');
     })
     .catch(ui.UpdateMealFailure);
 };
@@ -65,7 +65,7 @@ const addHandlers = () => {
   $('#show-meals').on('click', onGetMeals);
   $('.meal-show').on('click', '.meal-delete', onRemoveMeal);
   $('.meal-show').on('click', '.meal-edit', openEditModal);
-  $('.meal-show').on('submit','form.edit-meal', onUpdateMeal);
+  $('form.edit-meal').on('submit', onUpdateMeal);
 };
 
 module.exports = {
