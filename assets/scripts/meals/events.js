@@ -13,6 +13,7 @@ const onCreateMeal = function (event) {
   api.createMeal(data)
     .then((response) => {
       store.meal = response.meal;
+      onGetMeals();
     })
     .then(ui.createMealSuccess)
     .catch(ui.createMealFailure);
