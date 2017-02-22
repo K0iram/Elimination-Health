@@ -37,6 +37,7 @@ const getMealSuccess = () => {
 };
 
 const updateMealSuccess = () => {
+  $('#editModal').modal('hide');
   $('.alert span').text("Meal Edited! Click show to view your changes!");
   $('.alert').slideDown();
 
