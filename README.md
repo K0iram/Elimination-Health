@@ -19,7 +19,7 @@ This full stack app was built using the following development technologies:
   How I started:
     After building out the backend in Ruby and deploying it to heroku, I started by creating a bare bones html page with multiple input feilds and buttons. Fron there I started creating my RESTful routes for each field. I started with CREATE and once that worked went on to INDEX, PATCH, DELETE respectivly.
 
-    After all these request were working locally I deployed my app to github pages. From there I used bootstrap and sass to further design the user interface. Adding alerts, modals, tables, and forms I created the basic layout the user can see.
+After all these request were working locally I deployed my app to github pages. From there I used bootstrap and sass to further design the user interface. Adding alerts, modals, tables, and forms I created the basic layout the user can see.
 
 Here are my User Stories:
   <ol>
