@@ -35,7 +35,7 @@ const onUpdateMeal = function (event) {
     .then(ui.UpdateMealSuccess)
     .then(() => {
       onGetMeals();
-      $('#editModal').modal('hide');
+      // $('#editModal').modal('hide');
     })
     .catch(ui.UpdateMealFailure);
 };
