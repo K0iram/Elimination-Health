@@ -11,9 +11,9 @@ const onCreateMeal = function (event) {
   let data = getFormFields(event.target);
   event.preventDefault();
   api.createMeal(data)
-    .then((response) => {
-      store.meal = response.meal;
-    })
+    // .then((response) => {
+    //   store.meal = response.meal;
+    // })
     .then(ui.createMealSuccess)
     .catch(ui.createMealFailure);
 };
