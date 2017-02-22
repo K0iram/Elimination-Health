@@ -26,7 +26,7 @@ const getMeals = function () {
 
 const updateMeal = function (data) {
   return $.ajax({
-    url: config.apiOrigin + 'meals/' + data.meal.id,
+    url: config.apiOrigin + '/meals/' + data.meal.id,
     method: 'PATCH',
     headers: {
       "Authorization": `Token token=${store.user.token}`
