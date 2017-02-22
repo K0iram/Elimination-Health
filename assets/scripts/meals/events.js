@@ -23,8 +23,8 @@ const onGetMeals = function () {
     .then((response) => {
       store.meals = response.meals;
       ui.getMealSuccess();
-      addHandlers();
     })
+    .then(addHandlers)
     .catch(ui.getMealFailure);
 };
 
