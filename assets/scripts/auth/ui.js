@@ -23,15 +23,15 @@ const checkForUser = function() {
 const signUpFailure = (err) => {
 	if (err.status === 400) {
 		//unauthorized
-		$('.alert span').text("Something went wrong. Check your email/password.");
-    $('.alert').slideDown();
+		$('.danger-alert-message').text("Something went wrong. Check your email/password.");
+    $('.alert-danger').slideDown();
 
-    $('.alert').delay(2000).slideUp();
+    $('.alert-danger').delay(2000).slideUp();
 	} else {
-		$('.alert span').text("An unknown error occured.");
-    $('.alert').slideDown();
+		$('.danger-alert-message').text("An unknown error occured.");
+    $('.alert-danger').slideDown();
 
-    $('.alert').delay(2000).slideUp();
+    $('.alert-danger').delay(2000).slideUp();
 
 	}
 };
@@ -39,10 +39,10 @@ const signUpFailure = (err) => {
 const signUpSuccess = (resp) => {
   $("#sign-up")[0].reset();
   $('#logbox').hide();
-  $('.alert span').text("Thanks for signing up! Please sign in!");
-  $('.alert').slideDown();
+  $('.alert-message').text("Thanks for signing up! Please sign in!");
+  $('.alert-success').slideDown();
 
-  $('.alert').delay(2000).slideUp();
+  $('.alert-success').delay(2000).slideUp();
 };
 
 const signInSuccess = (resp) => {
@@ -50,10 +50,10 @@ const signInSuccess = (resp) => {
 	//keeps a copy of the user in local storage to keep  session open
 	window.localStorage.setItem('user', JSON.stringify(resp.user));
   loggedInSuccess();
-  $('.alert span').text('You have signed is as ' + resp.user.email);
-	$('.alert').slideDown();
+  $('.alert-message').text('You have signed is as ' + resp.user.email);
+	$('.alert-success').slideDown();
 
-	$('.alert').delay(2000).slideUp();
+	$('.alert-success').delay(2000).slideUp();
 
 
 	checkForUser();
@@ -65,11 +65,13 @@ const loggedInSuccess = () => {
   $("#sign-in")[0].reset();
   $('#signIn').hide();
   $('#logbox').hide();
+  $('.meal-show').show();
 };
 
 const signOutSuccess = () => {
   $('#logbox').show();
   $('#lobbox2').hide();
+  $('.meal-show').html('');
 
 
 	store.user = {};
@@ -82,39 +84,39 @@ const signOutSuccess = () => {
 const signInFailure = (err) => {
 	if (err.status === 401) {
 		//unauthorized
-		$('.alert span').text("Wrong username or password! Try again");
-    $('.alert').slideDown();
+		$('.danger-alert-message').text("Wrong username or password! Try again");
+    $('.alert-danger').slideDown();
 
-  	$('.alert').delay(2000).slideUp();
+  	$('.alert-danger').delay(2000).slideUp();
 	} else {
-		$('.alert span').text("An unknown error occured.");
-    $('.alert').slideDown();
+		$('.danger-alert-message').text("An unknown error occured.");
+    $('.alert-danger').slideDown();
 
-  	$('.alert').delay(2000).slideUp();
+  	$('.alert-danger').delay(2000).slideUp();
 	}
 };
 
 const passwordChangeFailure = (err) => {
 	if (err.status === 400) {
 		//unauthorized
-		$('.alert span').text("Your existing password is incorect");
-    $('.alert').slideDown();
+		$('.danger-alert-message').text("Your existing password is incorect");
+    $('.alert-danger').slideDown();
 
-    $('.alert').delay(2000).slideUp();
+    $('.alert-danger').delay(2000).slideUp();
 	} else {
-		$('.alert span').text("An unknown error occured.");
-    $('.alert').slideDown();
+		$('.danger-alert-message').text("An unknown error occured.");
+    $('.alert-danger').slideDown();
 
-    $('.alert').delay(2000).slideUp();
+    $('.alert-danger').delay(2000).slideUp();
 	}
 };
 
 const passwordChangeSuccess = () => {
   $("#change-password")[0].reset();
-	$('.alert span').text('You have sucessfully changed your password!');
-	$('.alert').slideDown();
+	$('.alert-message').text('You have sucessfully changed your password!');
+	$('.alert-success').slideDown();
 
-	$('.alert').delay(2000).slideUp();
+	$('.alert-success').delay(2000).slideUp();
 };
 
 

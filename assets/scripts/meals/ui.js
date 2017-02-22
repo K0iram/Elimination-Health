@@ -4,23 +4,24 @@ const store = require('../store');
 const mealTemplate = require('../templates/meal-list.handlebars');
 
 const createMealSuccess = () => {
-  $('.alert span').text("New meal created! Click show to view");
-  $('.alert').slideDown();
+  $("#create-meal")[0].reset();
+  $('.alert-message').text("New meal created!");
+  $('.alert-success').slideDown();
 
-  $('.alert').delay(2000).slideUp();
+  $('.alert-success').delay(2000).slideUp();
 };
 const createMealFailure = (err) => {
 	if (err.status === 400) {
 		//unauthorized
-		$('.alert span').text("Something went wrong, please make sure all feilds are correct.");
-    $('.alert').slideDown();
+		$('.danger-alert-message').text("Something went wrong, please make sure all feilds are correct.");
+    $('.alert-danger').slideDown();
 
-    $('.alert').delay(2000).slideUp();
+    $('.alert-danger').delay(2000).slideUp();
 	} else {
-		$('.alert span').text("An unknown error occured. Please try again.");
-    $('.alert').slideDown();
+		$('.danger-alert-message').text("An unknown error occured. Please try again.");
+    $('.alert-danger').slideDown();
 
-    $('.alert').delay(2000).slideUp();
+    $('.alert-danger').delay(2000).slideUp();
 
 	}
 };
@@ -38,24 +39,24 @@ const getMealSuccess = () => {
 
 const updateMealSuccess = () => {
   $('#editModal').modal('hide');
-  $('.alert span').text("Meal Edited! Click show to view your changes!");
-  $('.alert').slideDown();
+  $('.alert-message').text("Meal Edited!");
+  $('.alert-success').slideDown();
 
-  $('.alert').delay(2000).slideUp();
+  $('.alert-success').delay(2000).slideUp();
 };
 
 const removeMealSuccess = () => {
   $('#delete-meal').val('');
-  $('.alert span').text("Meal Removed! Click show to view your changes!");
-  $('.alert').slideDown();
+  $('.alert-message').text("Meal Removed!");
+  $('.alert-success').slideDown();
 
-  $('.alert').delay(2000).slideUp();
+  $('.alert-success').delay(2000).slideUp();
 };
 const removeMealFailure = () => {
-  $('.alert span').text("Somthing went wrong! Pleas try again!");
-  $('.alert').slideDown();
+  $('.danger-alert-message').text("Somthing went wrong! Please try again!");
+  $('.alert-danger').slideDown();
 
-  $('.alert').delay(2000).slideUp();
+  $('.alert-danger').delay(2000).slideUp();
 };
 
 
