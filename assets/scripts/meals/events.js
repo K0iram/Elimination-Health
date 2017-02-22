@@ -13,7 +13,6 @@ const onCreateMeal = function (event) {
   api.createMeal(data)
     .then((response) => {
       store.meal = response.meal;
-      onGetMeals();
     })
     .then(ui.createMealSuccess)
     .catch(ui.createMealFailure);
@@ -24,7 +23,9 @@ const onGetMeals = function () {
     .then((response) => {
       store.meals = response.meals;
       ui.getMealSuccess();
-    });
+      addHandlers();
+    })
+    .catch(ui.getMealFailure);
 };
 
 const onUpdateMeal = function (event) {
@@ -65,7 +66,7 @@ const addHandlers = () => {
   $('#show-meals').on('click', onGetMeals);
   $('.meal-delete').on('click', onRemoveMeal);
   $('.meal-edit').on('click', openEditModal);
-  $('form #edit-meal').on('submit', onUpdateMeal);
+  $('form.edit-meal').on('submit', onUpdateMeal);
 };
 
 module.exports = {
