@@ -11,9 +11,10 @@ const onCreateMeal = function (event) {
   let data = getFormFields(event.target);
   event.preventDefault();
   api.createMeal(data)
-    // .then((response) => {
-    //   store.meal = response.meal;
-    // })
+    .then((response) => {
+      store.meal = response.meal;
+      onGetMeals();
+    })
     .then(ui.createMealSuccess)
     .catch(ui.createMealFailure);
 };
@@ -24,7 +25,6 @@ const onGetMeals = function () {
       store.meals = response.meals;
       ui.getMealSuccess();
     })
-    .then(addHandlers)
     .catch(ui.getMealFailure);
 };
 
@@ -48,7 +48,6 @@ const openEditModal = function (event) {
   })[0];
   $('#editModal').modal('show');
   $('#editModal .container').html(editMealTemplate({meal: currentMeal}));
-  addHandlers();
 };
 
 
@@ -64,8 +63,8 @@ const onRemoveMeal = function (event) {
 const addHandlers = () => {
   $('#create-meal').on('submit', onCreateMeal);
   $('#show-meals').on('click', onGetMeals);
-  $('.meal-delete').on('click', onRemoveMeal);
-  $('.meal-edit').on('click', openEditModal);
+  $('.meal-show').on('click', '.meal-delete', onRemoveMeal);
+  $('.meal-show').on('click', '.meal-edit', openEditModal);
   $('form.edit-meal').on('submit', onUpdateMeal);
 };
 
