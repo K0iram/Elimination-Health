@@ -63,8 +63,8 @@ const addHandlers = () => {
   $('#create-meal').on('submit', onCreateMeal);
   $('#show-meals').on('click', onGetMeals);
   $('.meal-delete').on('click', onRemoveMeal);
-  $(".meal-edit").on('click', openEditModal);
-  $('form.edit-meal').on('submit', onUpdateMeal);
+  $('.meal-edit').on('click', openEditModal);
+  $('form #edit-meal').on('submit', onUpdateMeal);
 };
 
 module.exports = {
