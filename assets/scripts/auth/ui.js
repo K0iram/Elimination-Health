@@ -11,12 +11,14 @@ const checkForUser = function() {
     $('#change-password').show();
     $('#logbox2').show();
     $('#show-meals').show();
+    $('.welcome').hide();
   } else {
     $('#sign-out').hide();
     $('#change-password').hide();
     $('#sign-in').show();
     $('#logbox2').hide();
     $('#show-meals').hide();
+    $('.welcome').show();
   }
 };
 
