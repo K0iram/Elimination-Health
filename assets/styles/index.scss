@@ -1,6 +1,17 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 
+body {
+  background: linear-gradient(
+              rgba(0, 0, 0, 0.5),
+              rgba(0, 0, 0, 0.5)
+              ),
+    url('./Veggie_desktop.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+}
+
 #sign-out {
   display: none;
   margin-top: 8px;
@@ -18,21 +29,30 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
   display: none;
 }
 
+#blurb {
+  color: #ffffff;
+}
+
+#hello {
+  color: #ffffff;
+  font-size: 35px;
+}
+
 .alert {
   display: none;
 };
 
-::selection {
-  background-color: #b5e2e7;
-}
+// ::selection {
+//   background-color: #b5e2e7;
+// }
+//
+// ::-moz-selection {
+//   background-color: #8ac7d8;
+// }
 
-::-moz-selection {
-  background-color: #8ac7d8;
-}
-
-body {
-  background: #77c32a;
-}
+// body {
+//   background: #77c32a;
+// }
 
 .container {
   display: -webkit-flex;

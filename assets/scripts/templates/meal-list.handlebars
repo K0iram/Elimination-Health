@@ -3,7 +3,7 @@
     <tr>
       <th>Title</th>
       <th>Date</th>
-      <th>Descrtiption</th>
+      <th>Description</th>
       <th>Feeling</th>
       <th>Actions</th>
     </tr>
@@ -17,8 +17,8 @@
       <td>{{meal.description}}</td>
       <td>{{meal.feeling}}</td>
       <td>
-        <button class="meal-edit" data-mealId="{{meal.id}}" >Edit</button>
-        <button class="meal-delete" data-mealId="{{meal.id}}">Delete</button>
+        <button class="btn btn-primary meal-edit" data-mealId="{{meal.id}}" >Edit</button>
+        <button class="btn btn-danger meal-delete" data-mealId="{{meal.id}}">Delete</button>
       </td>
     </tr>
     {{/each}}
