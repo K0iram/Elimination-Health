@@ -33,7 +33,8 @@ const onChangePassword = function (event) {
 const onSignOut = function (event) {
   event.preventDefault();
   api.signOut()
-    .then(ui.signOutSuccess);
+    .then(ui.signOutSuccess)
+    .catch(ui.signOutFailure);
 };
 
 

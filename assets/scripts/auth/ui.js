@@ -83,6 +83,15 @@ const signOutSuccess = () => {
 	return store;
 };
 
+const signOutFailure = () => {
+
+  store.user = {};
+  window.localStorage.removeItem('user');
+  checkForUser();
+  return store;
+};
+
+
 const signInFailure = (err) => {
 	if (err.status === 401) {
 		//unauthorized
@@ -130,6 +139,7 @@ module.exports = {
   passwordChangeFailure,
   passwordChangeSuccess,
   signOutSuccess,
+  signOutFailure,
   loggedInSuccess,
   checkForUser
 };
