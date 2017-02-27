@@ -84,6 +84,9 @@ const signOutSuccess = () => {
 };
 
 const signOutFailure = () => {
+  $('#logbox').show();
+  $('#lobbox2').hide();
+  $('.meal-show').html('');
 
   store.user = {};
   window.localStorage.removeItem('user');
