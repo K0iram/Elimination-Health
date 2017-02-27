@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Elimination Health</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags unless you know what you are doing -->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+      <!-- Do not add `script` tags unless you know what you are doing -->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+
+    </head>
+
+    <body>
+
+      <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <!-- <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button> -->
+
+              <a class="navbar-brand" href="https://mario7746.github.io/Elimination-Health/">Elimination Health</a>
+
+          </div>
+          <!-- <div class="collapse navbar-collapse" id="myNavbar"> -->
+
+            <ul class="nav navbar-nav navbar-right">
+
+              <!-- <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"> -->
+
+                <form id="sign-in" class="navbar-form navbar-right" role="form">
+
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                    <input id="email" type="email" class="form-control" name="credentials[email]" value="" placeholder="Email Address">
+                  </div>
+
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                    <input type="password" class="form-control" name="credentials[password]" value="" placeholder="Password">
+                  </div>
+                <button type="submit" class="btn btn-primary">Login</button>
+                </form>
+
+                <form id="change-password" class="navbar-form navbar-right" role="form">
+
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                    <input type="password" class="form-control" name="passwords[old]" value="" placeholder="Old Password">
+                  </div>
+
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                    <input type="password" class="form-control" name="passwords[new]" value="" placeholder="New Password">
+                  </div>
+
+                  <button type="submit" class="btn btn-primary">Change Password</button>
+                </form>
+                <button id="sign-out" class="btn btn-primary">Sign Out</button>
+
+              <!-- </div> -->
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <div class="alert alert-success alert-dismissible"><a class="close" data-dismiss="alert">×</a><span class="alert-message"></span></div>
+      <div class="alert alert-danger alert-dismissible"><a class="close" data-dismiss="alert">×</a><span class="danger-alert-message"></span></div>
+
+      <div class="welcome">
+        <h3 id="hello"><strong>HELLO!</strong></h3>
+        <p id="blurb"> Welcome to Elimination Health, a food diary app to help busy people keep track of what they eat and how they feel!</p>
+      </div>
+
+      <div>
+        <div class="container" >
+          <div class="col-md-6" >
+            <div id="logbox"  >
+              <form id="sign-up" method="post" action="/signup" >
+                <h1>Create an Account</h1>
+				            <input name="credentials[email]" type="email" placeholder="Email address" class="input pass"/>
+                    <input name="credentials[password]" type="password" placeholder="Choose a password" required="required" class="input pass"/>
+                    <input name="credentials[password_confirmation]" type="password" placeholder="Confirm password" required="required" class="input pass"/>
+                    <input type="submit" value="Sign me up!" class="inputButton"/>
+
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="container" >
+          <div class="col-md-6" >
+            <div id="logbox2"  >
+              <form id="create-meal">
+                <h1>Create a Meal</h1>
+                  <input name="meal[eaten_on]" type="date" placeholder="Date" class="input title" required="required">
+				          <input name="meal[title]" type="text" placeholder="Meal Title" class="input title" required="required">
+                  <textarea class="form-control" name="meal[description]" rows="3" placeholder="Describe your meal" required="required"></textarea>
+                  <h5>How did you feel? (On a scale from 1-10)</h5>
+                  <select class="form-control" name="meal[feeling]" required="required">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>
+                    <option>8</option>
+                    <option>9</option>
+                    <option>10</option>
+                  </select>
+                <input type="submit" value="Submit Your Meal!" class="inputButton"/>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal -->
+        <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Edit A Meal</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                  </div>
+                <div>
+                  <div class="container" >
+
+                  </div>
+                </div>
+              <div class="modal-footer">
+                <button class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+              </div>
+          </div>
+        </div>
+      </div>
+
+      <button class="btn btn-primary" id="show-meals">Show Your Meals</button>
+      <div class='meal-show'></div>
+
+  </body>
